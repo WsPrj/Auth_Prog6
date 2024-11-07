@@ -17,6 +17,12 @@ namespace ABM_Usuario.Controllers
 
             return View(oLista);
         }
+
+        public IActionResult Autenticacion()
+        {
+            //METODO SOLO DEVUELVE LA VISTA
+            return View();
+        }
         public IActionResult Guardar()
         {
             //METODO SOLO DEVUELVE LA VISTA

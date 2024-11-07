@@ -1,9 +1,12 @@
 ﻿using ABM_Usuario.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ABM_Usuario.Controllers
 {
+    //[Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -17,7 +20,22 @@ namespace ABM_Usuario.Controllers
         {
             return View();
         }
-
+        [Authorize(Roles = "Administrador, Supervisor, Empleado")]
+        public IActionResult Ventas()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Administrador, Supervisor")]
+        public IActionResult Compras()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Administrador, Supervisor")]
+        public IActionResult Clientes()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Administrador, Supervisor")]
         public IActionResult Privacy()
         {
             return View();
